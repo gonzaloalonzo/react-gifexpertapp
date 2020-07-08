@@ -10,10 +10,15 @@ export const AddCategory = ({setCategories}) => {
 
         setinputValue(e.target.value);
 
+        console.log('handlerInputChange llamado');
+
     }
 
     const handlerSubmit = (e) => {
         e.preventDefault();
+
+        console.log('handleSubmit', inputValue);
+        
         if (inputValue.trim().length > 2){
             setCategories((cats) => [ inputValue,...cats]);
             setinputValue(' ');
@@ -26,6 +31,7 @@ export const AddCategory = ({setCategories}) => {
         <form onSubmit = {
             handlerSubmit
         }>
+            <p>{inputValue}</p>
             <input
                 type="text"
                 value={inputValue}
